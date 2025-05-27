@@ -4,15 +4,13 @@ const PORT = 3000;
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/userdb', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-  console.log('MongoDB connected');
-}).catch(err => {
-  console.error(err);
-});
+// MongoDB connection string - replace with your actual connection string
+const MONGODB_URI = 'mongodb+srv://goshawkitteam:jhfrDqANx4jarNHI@cluster0.4b5gxag.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
+// Connect to MongoDB
+mongoose.connect(MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 // Middleware to parse JSON and URL-encoded data
 app.use(express.json());
